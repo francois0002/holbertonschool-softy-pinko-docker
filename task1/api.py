@@ -1,3 +1,5 @@
+""" Make an API that returns a hello world. """
+
 from flask import Flask
 
 app = Flask(__name__)
