@@ -1,0 +1,18 @@
+version: '3'
+services:
+  back-end:
+    build: # Build the image
+      context: ./back-end
+      dockerfile: Dockerfile
+    image: softy-pinko-back-end:task4 # Name of the image
+    ports:
+      - "5252:5252" # Port mapping host:container
+  front-end:
+    build: # Build the image
+      context: ./front-end
+      dockerfile: Dockerfile
+    image: softy-pinko-front-end:task4 # Name of the image
+    ports:
+      - "9000:9000" # Port mapping host:container
+    depends_on: # Wait for the back-end to start
+      - back-end
